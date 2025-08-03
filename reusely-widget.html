@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://widget.reusely.com/v3.js"></script>
+  <div class="buyback-widget"></div>
+  <script>
+    const resizeObserver = new ResizeObserver(entries => {
+      for (let entry of entries) {
+        const height = entry.contentRect.height;
+        window.parent.postMessage({ type: 'resize-widget', height }, '*');
+      }
+    });
+
+    resizeObserver.observe(document.body);
+
+    new Buyback({
+      tenantId: "c4de56fa210635b3b98acf4fc7617b44f4370e9ebe56167dba569b8a49253387",
+      apiKey: "YITV0lemaD3tTwND8NAckASNg5nVIhMTJJIxxPdpASN1jZ8wRXMSEzEooTvwPql5",
+      disableFloatButton: false
+    });
+  </script>
+</body>
+</html>
